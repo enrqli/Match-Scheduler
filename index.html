@@ -434,10 +434,10 @@ async function exportToPDF() {
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(14);
     doc.setTextColor(0);
-    doc.text((state.tName || 'TOURNAMENT SCHEDULE').toUpperCase(), 14, 11);
+    doc.text((state.tName || 'TOURNAMENT SCHEDULE').toUpperCase(), 8, 11);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(9);
-    doc.text(`${list.length} matches  |  ${courtNos.length} court(s)  |  ${mm} min per match`, 14, 16.5);
+    doc.text(`${list.length} matches  |  ${courtNos.length} court(s)  |  ${mm} min per match`, 8, 16.5);
 
     const pageH = doc.internal.pageSize.getHeight();
     let y = 24;
@@ -487,7 +487,7 @@ async function exportToPDF() {
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(13);
       doc.setTextColor(30, 58, 138);
-      doc.text(`COURT ${cn}  -  ${rows.length} match${rows.length === 1 ? '' : 'es'}`, 14, y);
+      doc.text(`COURT ${cn}  -  ${rows.length} match${rows.length === 1 ? '' : 'es'}`, 8, y);
 
       doc.autoTable({
         startY: y + 3,
@@ -496,14 +496,14 @@ async function exportToPDF() {
         styles: { lineColor: [170, 178, 190], lineWidth: 0.25 },
         head: [['Match #', 'Time', { content: 'Team 1', styles: { halign: 'right' } }, { content: 'Score', colSpan: 2, styles: { halign: 'center' } }, 'Team 2', 'Category']],
         body,
-        margin: { left: 14, right: 14, top: 15, bottom: 16 },
+        margin: { left: 8, right: 8, top: 15, bottom: 16 },
         columnStyles: {
-          0: { cellWidth: 14, fontStyle: 'bold' },
+          0: { cellWidth: 15, fontStyle: 'bold' },
           1: { cellWidth: 36 },
-          2: { cellWidth: 34, halign: 'right', fontStyle: 'bold' },
+          2: { cellWidth: 38, halign: 'right', fontStyle: 'bold' },
           3: { cellWidth: 14, halign: 'center', fontStyle: 'bold', fontSize: 11 },
           4: { cellWidth: 14, halign: 'center', fontStyle: 'bold', fontSize: 11 },
-          5: { cellWidth: 34, fontStyle: 'bold' },
+          5: { cellWidth: 38, fontStyle: 'bold' },
           6: { cellWidth: 'auto' }
         },
         headStyles: { fillColor: [30, 58, 138], textColor: 255, fontStyle: 'bold', fontSize: 10 },
@@ -536,7 +536,7 @@ async function exportToPDF() {
       doc.setFontSize(8);
       doc.setFont('helvetica', 'normal');
       doc.setTextColor(128);
-      doc.text(`Page ${i} of ${pages}`, 14, pageH - 8);
+      doc.text(`Page ${i} of ${pages}`, 8, pageH - 8);
     }
 
 
